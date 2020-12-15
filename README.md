@@ -7,7 +7,7 @@ Creating a random matrix
 ------------------------
 `python createTestCase.py -n <n>`
 
-This script creates a _n_ _x_ _n_ matrix, filled with integers ranging from 0 to 30.
+This script creates a _n_ x _n_ matrix, filled with integers ranging from 0 to 30.
 
 
 Compute Reflectors and Taus
@@ -34,7 +34,10 @@ This bash script collect starting matrix (A), matrix of reflectors (V) and matri
 Back-transformation
 -------------------
 This first python script applies the back-transformation using matrix multiplications (solving A = A - V T V* A): 
+
 `python matmul_backtrans.py  --set file test-backtrans.py`
 
+
 This second python script applies the algorithm tuned for single element (or tiles in [DLAF](https://github.com/eth-cscs/DLA-Future)):
+
 `python analytical_backtrans.py  --set file test-backtrans.py`
