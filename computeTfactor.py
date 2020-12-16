@@ -73,15 +73,15 @@ if (v == 1):
 outF = open("myTfactor.py", "w")
 outF.write("import numpy as np\n")
 outF.write("T = np.array([")
-for row in range(0, V.shape[0]):
+for row in range(0, T.shape[0]):
     outF.write("[")
-    for col in range(0, V.shape[1]):
+    for col in range(0, T.shape[1]):
         outF.write("%.5f" % T[row, col])
 
-        if col != V.shape[1]-1:
+        if col != T.shape[1]-1:
             outF.write(", ")
         
-    if row == V.shape[0]-1:
+    if row == T.shape[0]-1:
         outF.write("]")
     else:
         outF.write("], ")

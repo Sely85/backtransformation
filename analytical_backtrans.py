@@ -73,6 +73,25 @@ if (v == 1):
     print(T)
     print
 
+
+print("all-test-matrices.cpp has been written: it contains lambdas to create test cases (for DLAF)")
+outF = open("all-test-matrices.cpp", "w")
+
+outF.write("auto el_C = [](const GlobalElementIndex& index) {\n")
+outF.write("  static const double values[] = {")
+for col in range(0, A.shape[1]):
+    for row in range(0, A.shape[0]):
+        outF.write("%.5f" % A[row, col])
+        if row == A.shape[0]-1:
+            outF.write(" ")
+        else:
+            outF.write(", ")        
+    if col != A.shape[1]-1:
+        outF.write(", ")
+outF.write("};\n")
+outF.write("  return values[index.row() + %d * index.col()];\n" % n)
+outF.write("};\n")
+outF.write("\n")
     
 W = np.zeros((n,n))
 W2 = np.zeros((n,n))
@@ -128,3 +147,50 @@ print
 print(R)
 print 
 
+
+outF.write("auto el_V = [](const GlobalElementIndex& index) {\n")
+outF.write("  static const double values[] = {")
+for col in range(0, V.shape[1]):
+    for row in range(0, V.shape[0]):
+        outF.write("%.5f" % V[row, col])
+        if row == V.shape[0]-1:
+            outF.write(" ")
+        else:
+            outF.write(", ")        
+    if col != V.shape[1]-1:
+        outF.write(", ")
+outF.write("};\n")
+outF.write("  return values[index.row() + %d * index.col()];\n" % n)
+outF.write("};\n")
+outF.write("\n")
+
+outF.write("auto el_T = [](const GlobalElementIndex& index) {\n")
+outF.write("  static const double values[] = {")
+for col in range(0, T.shape[1]):
+    for row in range(0, T.shape[0]):
+        outF.write("%.5f" % T[row, col])
+        if row == T.shape[0]-1:
+            outF.write(" ")
+        else:
+            outF.write(", ")        
+    if col != T.shape[1]-1:
+        outF.write(", ")
+outF.write("};\n")
+outF.write("  return values[index.row() + %d * index.col()];\n" % n)
+outF.write("};\n")
+outF.write("\n")
+
+outF.write("auto res = [](const GlobalElementIndex& index) {\n")
+outF.write("  static const double values[] = {")
+for col in range(0, R.shape[1]):
+    for row in range(0, R.shape[0]):
+        outF.write("%.5f" % R[row, col])
+        if row == R.shape[0]-1:
+            outF.write(" ")
+        else:
+            outF.write(", ")        
+    if col != R.shape[1]-1:
+        outF.write(", ")
+outF.write("};\n")
+outF.write("  return values[index.row() + %d * index.col()];\n" % n)
+outF.write("};\n")

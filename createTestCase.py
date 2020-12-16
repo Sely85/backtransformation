@@ -19,13 +19,13 @@ for i in range(l):
         v = 1
     if (args[i] == "-n"):
         try:
-            print("Creating test case matrix (integers between 0 and 30) of size " + args[i+1] + "x" + args[i+1])
+            print("Creating test case matrix (integers between 0 and 200) of size " + args[i+1] + "x" + args[i+1])
             n=int(args[i+1])
         except:
             exit("Missing size of matrix")
 
 # Creating random matrix (values between 0 and 1)
-A = np.random.randint(30, size=(n,n))
+A = np.random.randint(200, size=(n,n))
 if (v == 1):
     print
     print("===============")
