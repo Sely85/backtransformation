@@ -1,5 +1,5 @@
-Back-transformation algorithm
-=============================
+Back-transformation algorithm (QR-like)
+=======================================
 
 This set of scripts has been used to understand back-transformation algorithm (with reflectors applied from 0 to k, with results comparable to a QR decomposition: Q<sub>n</sub> Q<sub>n-1</sub> ... Q<sub>1</sub> C).
 
